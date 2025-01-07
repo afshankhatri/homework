@@ -1,0 +1,119 @@
+Types of FOR loop in python :{
+  1> my_string = "hello"
+    for char in my_string:
+        print(char)
+
+  2> for i in range(5):  # 0 to 4
+        print(i)
+
+  3> for i in range(1, 10, 2):    # Start at 1, stop BEFORE 10, step by 2
+        print(i)
+
+  4> my_dict = {'a': 1, 'b': 2, 'c': 3}
+     for value in my_dict.values():
+         print(value)
+
+ 5>  my_dict = {'a': 1, 'b': 2, 'c': 3}
+     for key in my_dict:
+         print(key)
+
+  6> for key, value in my_dict.items():
+         print(key, value)
+
+  7> my_tuple = (1, 2, 3, 4)
+         for item in my_tuple:
+             print(item)
+
+  8> for i in range(3):
+         print(i)
+     else:
+         print("Loop finished")
+
+  9> for i in range(3):
+         if i == 2:
+            break  # this will break he loop completely and even the else will  not work if break condition becomes true
+         print(i)
+     else:
+        print("Loop finished")
+
+
+ 10> for i in range(3):  # Outer loop
+         for j in range(2):  # Inner loop
+             print(f"i={i}, j={j}")
+
+ 11> my_list = ['a', 'b', 'c']
+         for index, value in enumerate(my_list):
+             print(f"Index: {index}, Value: {value}")
+
+ 12> names = ['Alice', 'Bob', 'Charlie']
+         ages = [25, 30, 35]
+
+         for name, age in zip(names, ages):
+             print(f"{name} is {age} years old.")
+
+
+ 13> squares = [x**2 for x in range(5)]
+         print(squares)  
+
+
+
+}
+
+
+CORS SETTINGS :{  [by this we can define that who can access the data of our website anytime they want] 
+    CORS(app)
+    By using CORS(app), you’re telling your app, "Let anyone from anywhere use my data." This is useful for sharing data, but it can also be risky if you don’t trust who’s talking to your app.
+
+    [To make it safer we define that which data to be shared and which should be kept secret, for that we define it in "resources" as follows.]
+    cors = CORS(app, resources={r"/handover_form": {"origins": "*"}})  ... only the mentioned path here are kept public rest as secret
+
+}
+
+maintaining of ROUTES for cleaner code :{
+    we do this so that similar types of routes can be found at one plave and main "app.py" looks clean, and the code becomes readable...
+
+    create a blueprint of it and define it's position by importing that file which contains route 
+    
+    [since we need the page_routes attribute which is inside the route_callings file this is how we do it for reaching that path ]
+    from static.functions.route_callings import page_routes
+    app.register_blueprint(page_routes)   
+
+    now to to this location / file where the attribute of page_routes is kept ... in that file define all the routes in clear format ... that file will only contain the routes
+    page_routes = Blueprint('page_routes', __name__)
+
+    now below defining start writing the  routes 
+    @page_routes.route('/')
+    def index():
+        return render_template('loginpage.html')
+
+    ..other routes in same way ...
+
+}
+
+AJAX:{
+    Think of it like looking at a weather website. Instead of refreshing the whole page to get the latest temperature, AJAX can just fetch the current temperature data and update it on the screen without disturbing the whole page.
+    I.E> to get the live data we cannot afford to load the pae always ,with AJAX we jsut reload the part that is required.
+
+    AJAX is like secretly asking the server for data without bothering the user with a full page reload. It’s faster, smoother, and feels more interactive.
+
+    similarly we can use it for displaying live data of of forms filled ... so as soon as the form is filled the place where data is displayed will get updated with AJAX and we will get the latest data 
+
+    uses XHR (XML Http Resuest Object)
+
+}
+
+SESSION :{
+    saves the log-in and log-out info of the user  
+
+    from flask import Flask, render_template, redirect, request, session
+    from flask_session import Session
+
+    app = Flask(__name__)
+    app.config["SESSION_PERMANENT"] = False         [FALSE = for a limited period of time | TRUE = untill logout is done]
+    app.config["SESSION_TYPE"] = "filesystem"     [ filesystem saves the data in the hardDrive |  ]
+    Session(app)
+
+    [as we connect the db similarly we can connect the session to the databse ... only we need to write ... Session(app) .. rest same ]
+    
+
+}

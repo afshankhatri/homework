@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+}
+
+.login-form {
+    width: 300px;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #fff; /* White border */
+    border-radius: 10px;
+    background-color: #111; /* Dark gray background */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); /* Subtle white shadow */
+}
+
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #fff; /* White border */
+    border-radius: 5px;
+    background-color: #222; /* Darker gray for input background */
+    color: #fff; /* White text */
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.login-form input[type="password"]::placeholder {
+    color: #aaa; /* Lighter gray for placeholder */
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444; /* Dark gray button */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-form button:hover {
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.login-form button:active {
+    background-color: #ddd; /* Light gray for active state */
+    color: #000;
+}

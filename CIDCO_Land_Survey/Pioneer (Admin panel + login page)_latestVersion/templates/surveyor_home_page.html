@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveyor Home Page</title>
+    <link rel="stylesheet" href="../static/css/surveyor_home_page.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="surveyor_home_page">Forms</a>
+        <a href="dashboard">Reports</a>
+    </nav>
+
+    <!-- Main Content -->
+    <h1>Forms Submitted</h1>
+    <!-- Add your output table or other content here -->
+ <!-- Search Bar and Date Filter -->
+ <label for="searchBar">Search by Surveyor Name:</label>
+ <input type="text" id="searchBar" placeholder="Enter name...">
+
+ <label for="dateFilter">Filter by Month-Year:</label>
+ <input type="month" id="dateFilter">
+ 
+ <a href="/survey_form_input" ><button>Create New Form</button></a>
+      
+
+ <!-- Data Table -->
+ <table id="dataTable">
+     <thead>
+         <tr>
+             <th>View</th>
+             <th>Serial No</th>
+             <th>Form ID</th>
+             <th>Name of Surveyor</th>
+             <th>Date of Upload</th>
+             <th>Name of Node</th>
+             <th>Sector No</th>
+             <th>Block Name</th>
+             <th>Plot No</th>
+         </tr>
+     </thead>
+     <tbody id="dataTable1"></tbody>
+ </table>
+    <script src = "../static/js/surveyor_home_page.js"></script>
+</body>
+</html>

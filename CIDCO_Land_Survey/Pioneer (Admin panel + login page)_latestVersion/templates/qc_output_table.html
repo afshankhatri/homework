@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Form Table</title>
+    <link rel="stylesheet" href="../static/css/output_table.css">
+</head>
+<body>
+    <h1>Output Form Table</h1>
+
+    <!-- Search Bar and Date Filter -->
+    <label for="searchBar">Search by Surveyor Name:</label>
+    <input type="text" id="searchBar" placeholder="Enter name...">
+
+    <label for="dateFilter">Filter by Month-Year:</label>
+    <input type="month" id="dateFilter">
+
+ <!-- Buttons Section --> 
+<div id="buttonContainer">
+    <button id="default_button" class="filter-button" onclick="toggleColumn('default')">Default</button>
+    <button id="accept_button" class="filter-button" onclick="toggleColumn('accepted')">Accepted List</button>
+    <button id="reject_button" class="filter-button" onclick="toggleColumn('rejected')">Rejected List</button>
+</div>
+
+
+    <!-- Data Table -->
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>View</th>
+                <th>Serial No</th>
+                <th>Form ID</th>
+                <th>Name of Surveyor</th>
+                <th>Date of Upload</th>
+                <th>Name of Node</th>
+                <th>Sector No</th>
+                <th>Block Name</th>
+                <th>Plot No</th>
+                <th id="validatorRemarksHeader">Validator Remarks</th>
+            </tr>
+        </thead>
+        <tbody id="dataTable1"></tbody>
+    </table>
+    <script src = "../static/js/qc_output_table_2.js"></script>
+
+<script src = "../static/js/qc_output_table.js"></script>
+
+</body>
+</html>

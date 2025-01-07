@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project and Product Tables</title>
+    <link rel="stylesheet" href="../static/CSS/ewaybill.css">
+
+
+</head>
+<body>
+    
+<h1>Eway Bill Data</h1>
+<h4 style="color: rgb(223, 24, 24);">Note : This page is only for data displaying purpose. Kindly copy values and paste in Ewaybill Excel sheet provided by the Admin.</h4>
+
+    <h2>Projects Table</h2>
+    <table id="projectsTable">
+        <thead>
+            <tr>
+                <th>Source/Destination</th>
+                <th>Project Name</th>
+                <th>Address</th>
+                <th>GSTIN</th>
+                <th>State</th>
+                <th>State Code</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>Products Table</h2>
+    <table id="productsTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Product ID</th>
+                <th>Category</th>
+                <th>HSN Code</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/ewaybill_data')
+
+        .then(response => response.json())
+        
+        .then(data => {
+            console.log("this is the data",data)
+
+            const addressData = data.address_data;
+            const jsonData = data.json_data;
+
+            // Prepare Table 1: Projects
+            let table1 = [
+                {
+                    'Source/Destination': 'Source',
+                    'Project Name': addressData.Source[0].Projects,
+                    'Address': addressData.Source[0].Address,
+                    'GSTIN': addressData.Source[0].GSTIN,
+                    'State': addressData.Source[0].STATE,
+                    'State Code': addressData.Source[0].State_Code
+                },
+                {
+                    'Source/Destination': 'Destination',
+                    'Project Name': addressData.Destination[0].Projects,
+                    'Address': addressData.Destination[0].Address,
+                    'GSTIN': addressData.Destination[0].GSTIN,
+                    'State': addressData.Destination[0].STATE,
+                    'State Code': addressData.Destination[0].State_Code
+                }
+            ];
+
+            // Prepare Table 2: Products
+            function getHSNCode(category) {
+                switch (category) {
+                    case 'DGPS':
+                        return '901580';
+                    case 'UAV':
+                        return '84717050';
+                    default:
+                        return 'No HSNcode for this category';
+                }
+            }
+
+            let table2 = jsonData.map(item => ({
+                'Name': item.Name,
+                'Product ID': item.ProductSerial,
+                'Category' : item.Category,
+                'HSN Code': getHSNCode(item.Category),
+                'Rate': 'Not Defined'
+            }));
+
+            // Populate Projects Table
+            const projectsTableBody = document.querySelector('#projectsTable tbody');
+            table1.forEach(row => {
+                const tr = document.createElement('tr');
+                for (let cell in row) {
+                    const td = document.createElement('td');
+                    td.textContent = row[cell];
+                    tr.appendChild(td);
+                }
+                projectsTableBody.appendChild(tr);
+            });
+
+            // Populate Products Table
+            const productsTableBody = document.querySelector('#productsTable tbody');
+            table2.forEach(row => {
+                const tr = document.createElement('tr');
+                for (let cell in row) {
+                    const td = document.createElement('td');
+                    td.textContent = row[cell];
+                    tr.appendChild(td);
+                }
+                productsTableBody.appendChild(tr);
+            });
+        });
+});
+
+
+    </script>
+</body>
+</html>

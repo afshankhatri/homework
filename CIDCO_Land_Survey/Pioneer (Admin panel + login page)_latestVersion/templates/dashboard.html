@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/surveyor_home_page.css">
+    <title>Survey Form Data Chart</title>
+
+</head>
+<body>
+     <!-- Navigation Bar -->
+     <nav>
+        <a href="surveyor_home_page">Forms</a>
+        <a href="dashboard">Reports</a>
+    </nav>
+
+    <!-- Main Content -->
+    <h1>Surveyor Reports</h1>
+    <!-- Add your output table or other content here -->
+    <div class="filter-container">
+
+        <!-- Node Name Buttons -->
+        <div class="button-container">
+            <h3>Node Name</h3>
+            {% for node in node_names %}
+            <button 
+                class="button node-button" 
+                value="{{ node[0] }}" 
+                onclick="handleNodeClick('{{ node[0] }}')"
+            >
+                {{ node[0] }}
+            </button>
+            {% endfor %}
+        </div>
+
+        <!-- Sector Name Buttons -->
+        <div class="button-container">
+            <h3>Sector Name</h3>
+            {% for sector in sector_numbers %}
+            <button 
+                class="button sector-button" 
+                value="{{ sector[0] }}" 
+                onclick="handleSectorClick('{{ sector[0] }}')"
+            >
+                {{ sector[0] }}
+            </button>
+            {% endfor %}
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="button-container">
+            <button id="applyFilterButton" onclick="applyFilter()">Apply Filter</button>
+            <button id="clearFilterButton" onclick="clearFilter()">Clear Filter</button>
+        </div>
+    </div>
+        </div>
+
+       <br>
+
+    <div>
+        <h4>Metrics</h4>
+        <table>
+            <tr>
+        <td><div>Total Forms: </td><td> <span id="totalForms">0</span></td></div></tr>
+        <tr>
+            <td><div>Forms Completed: </td><td><span id="formsCompleted">0</span></div></td></tr>
+            <tr>
+                <td><div>Forms Incomplete: </td><td><span id="formsIncomplete">0</span></div></td></tr>
+                <tr>
+                    <td><div>Pending QC: </td><td><span id="pendingQC">0</span></div></td></tr>
+                    <tr>
+                        <td><div>Pending Validator: </td><td><span id="pendingValidator">0</span></div></td></tr>
+    </table>
+    </div>
+    
+    <canvas id="barChart" width="400" height="200"></canvas>
+    
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="../static/js/dashboard.js"></script>
+</body>
+</html>

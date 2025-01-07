@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h3, h2, h1 {
+    color: #555;
+    margin-bottom: 15px; /* Added margin bottom for spacing between headers */
+}
+
+.filter-container {
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    margin-top: 20px; /* Added margin top to give some space above */
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Increased gap for spacing between buttons */
+    margin-bottom: 20px;
+    margin-top: 15px; /* Added margin top */
+}
+
+.button {
+    padding: 12px 25px; /* Increased padding for larger buttons */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #555;
+    margin: 5px; /* Added margin for spacing between buttons */
+}
+
+.button:hover {
+    background-color: #d0d0d0;
+}
+
+.button.active {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+#applyFilterButton, #clearFilterButton {
+    padding: 12px 25px; /* Adjusted padding for larger buttons */
+    margin: 15px 10px; /* Increased margins for better spacing */
+    border: none;
+    border-radius: 5px;
+    background-color: #9e9e9e;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#applyFilterButton:hover, #clearFilterButton:hover {
+    background-color: #757575;
+}
+
+.container {
+    padding: 40px; /* Increased padding for better layout */
+    margin-top: 20px; /* Added margin top to separate from other sections */
+}
+
+.table {
+    background-color: white;
+    padding: 25px; /* Increased padding for more space around the table */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Center the table and added margin for spacing */
+    width: 85%; /* Adjusted width */
+}
+
+table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px; /* Increased padding for better readability */
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+    color: #555;
+    padding-bottom: 20px; /* Added padding bottom for better spacing */
+}
+
+td {
+    background-color: #fafafa;
+    color: #333;
+}
+
+td, th {
+    border-bottom: 1px solid #ddd;
+}
+
+.chart {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px; /* Added padding for better spacing around the chart */
+}
+
+.chart img {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px; /* Added padding around the image */
+}
