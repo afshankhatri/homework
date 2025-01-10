@@ -11,7 +11,7 @@ int pattern5();
 
 int main(int argc, char const *argv[])
 {
-    // array(); he he 
+    // array(); he he hrhr
     pattern1();
     pattern2();
     pattern3();
