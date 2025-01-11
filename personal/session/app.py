@@ -13,7 +13,7 @@ def login():
     if request.method == "POST":
         # record the user name
         session["name"] = request.form.get("NAME")
-        # redirect to the main page
+        # redirect to the main page hehe
         return redirect("/")
     return render_template("login.html")
 
